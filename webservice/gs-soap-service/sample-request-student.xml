@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://mukul.com/test/soap-service">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getStudentDetailRequest>
+         <gs:name>Mukul</gs:name>
+      </gs:getStudentDetailRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

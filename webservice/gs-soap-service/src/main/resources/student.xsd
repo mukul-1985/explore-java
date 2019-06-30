@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://mukul.com/test/soap-service"
+           targetNamespace="http://mukul.com/test/soap-service" elementFormDefault="qualified">
+
+    <xs:element name="getStudentDetailRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getStudentDetailResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="student">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:int" />
+            <xs:element name="course" type="tns:course"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="course">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Science"/>
+            <xs:enumeration value="Maths"/>
+            <xs:enumeration value="Literature"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
