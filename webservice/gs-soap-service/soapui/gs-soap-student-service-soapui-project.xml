@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6dae1351-2d99-4868-bb20-4df9237cd6e1" activeEnvironment="Default" name="gs-soap-student-service" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8b9fd235-249c-49cd-b9ac-342f90d630cf" wsaVersion="NONE" name="StudentPortSoap11" type="wsdl" bindingName="{http://mukul.com/test/soap-service}StudentPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/student/student.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/student/student.wsdl"><con:part><con:url>http://localhost:8080/ws/student/student.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://mukul.com/test/soap-service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://mukul.com/test/soap-service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mukul.com/test/soap-service">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://mukul.com/test/soap-service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getStudentDetailRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getStudentDetailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="student" type="tns:student"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="student">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="age" type="xs:int"/>
+          <xs:element name="course" type="tns:course"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="course">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Science"/>
+          <xs:enumeration value="Maths"/>
+          <xs:enumeration value="Literature"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getStudentDetailRequest">
+    <wsdl:part element="tns:getStudentDetailRequest" name="getStudentDetailRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudentDetailResponse">
+    <wsdl:part element="tns:getStudentDetailResponse" name="getStudentDetailResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StudentPort">
+    <wsdl:operation name="getStudentDetail">
+      <wsdl:input message="tns:getStudentDetailRequest" name="getStudentDetailRequest"></wsdl:input>
+      <wsdl:output message="tns:getStudentDetailResponse" name="getStudentDetailResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StudentPortSoap11" type="tns:StudentPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getStudentDetail">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getStudentDetailRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStudentDetailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StudentPortService">
+    <wsdl:port binding="tns:StudentPortSoap11" name="StudentPortSoap11">
+      <soap:address location="http://localhost:8080/ws/student"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/student</con:endpoint></con:endpoints><con:operation id="190bfc06-8c07-4db8-a7b8-2488baa918d0" isOneWay="false" action="" name="getStudentDetail" bindingOperationName="getStudentDetail" type="Request-Response" outputName="getStudentDetailResponse" inputName="getStudentDetailRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a953708-bc08-4e46-9916-6233b5cf6f88" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/student</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://mukul.com/test/soap-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getStudentDetailRequest>\r
+         <soap:name>Jain</soap:name>\r
+      </soap:getStudentDetailRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mukul.com/test/soap-service/StudentPort/getStudentDetailRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="685b090a-4602-4b5a-8f50-28a6f1946392" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="72981383-4dc0-4cbb-8f62-0105e793c90a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="dbe7438d-30e4-4b4a-8265-937a2612d5d3" name="getStudentDetail - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>StudentPortSoap11</con:interface><con:operation>getStudentDetail</con:operation><con:request name="getStudentDetail - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="804b18da-5b84-4696-81cc-ac399ab5bce1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/student</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://mukul.com/test/soap-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getStudentDetailRequest>\r
+         <soap:name>Jain</soap:name>\r
+      </soap:getStudentDetailRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="c0c524d6-4633-4872-8b44-a4213328b623" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mukul.com/test/soap-service/StudentPort/getStudentDetailRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4e6409ec-f1e3-4a04-97e6-a7a79f30e80a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 2" searchProperties="true"><con:settings/><con:testStep type="request" id="c572517a-af4b-4666-a7b2-e12628f05f34" name="getStudentDetail - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>StudentPortSoap11</con:interface><con:operation>getStudentDetail</con:operation><con:request name="getStudentDetail - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="4c70aca1-9bf1-4bed-a1ca-3e1feed88560"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/student</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://mukul.com/test/soap-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getStudentDetailRequest>\r
+         <soap:name>Jain</soap:name>\r
+      </soap:getStudentDetailRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8e981ce3-9df9-4638-9252-3c043220933b" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mukul.com/test/soap-service/StudentPort/getStudentDetailRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
