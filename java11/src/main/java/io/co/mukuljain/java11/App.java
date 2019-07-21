@@ -8,6 +8,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        /**
+         *  ALL THE PROGRAMS ARE IN TEST FOLDER
+         */
+        System.out.println( "Programs are in the test package" );
     }
 }
