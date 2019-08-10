@@ -1,2 +1,2 @@
-# my-Java-practice-programs
-This repository is for my java practice programs
+# Explore Java
+This repository is to explore Java programing language and different framworks based on it.
